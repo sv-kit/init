@@ -1,0 +1,4 @@
+- [ ] - Rename project names
+  - [ ] - `yourappname` - Your app name like `postshield` or `shadcn-svelte`
+  - [ ] - `YOUR_APP_NAME` - Your actual app name like `PostShield` or `QuickDataConverter`
+  - [ ] - `yourappurl` - Your app url like `https://postshield.xyz` or `https://quickdataconverter.com`
