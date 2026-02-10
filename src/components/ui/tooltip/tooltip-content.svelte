@@ -1,26 +1,26 @@
 <script lang="ts">
-  import type { ComponentProps } from "svelte";
+import type { ComponentProps } from "svelte";
 
-  import { Tooltip as TooltipPrimitive } from "bits-ui";
+import { Tooltip as TooltipPrimitive } from "bits-ui";
 
-  import { cn } from "~utils/index.js";
-  import type { WithoutChildrenOrChild } from "~utils/index.js";
+import { cn } from "~utils/index.js";
+import type { WithoutChildrenOrChild } from "~utils/index.js";
 
-  import TooltipPortal from "./tooltip-portal.svelte";
+import TooltipPortal from "./tooltip-portal.svelte";
 
-  let {
-    ref = $bindable(null),
-    class: className,
-    sideOffset = 0,
-    side = "top",
-    children,
-    arrowClasses,
-    portalProps,
-    ...restProps
-  }: TooltipPrimitive.ContentProps & {
-    arrowClasses?: string;
-    portalProps?: WithoutChildrenOrChild<ComponentProps<typeof TooltipPortal>>;
-  } = $props();
+let {
+  ref = $bindable(null),
+  class: className,
+  sideOffset = 0,
+  side = "top",
+  children,
+  arrowClasses,
+  portalProps,
+  ...restProps
+}: TooltipPrimitive.ContentProps & {
+  arrowClasses?: string;
+  portalProps?: WithoutChildrenOrChild<ComponentProps<typeof TooltipPortal>>;
+} = $props();
 </script>
 
 <TooltipPortal {...portalProps}>

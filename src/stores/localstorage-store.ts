@@ -1,7 +1,13 @@
 import { get, writable, type Writable } from "svelte/store";
 import { browser } from "$app/environment";
 
-type JSONValue = string | number | boolean | null | JSONValue[] | { [key: string]: JSONValue };
+type JSONValue =
+  | string
+  | number
+  | boolean
+  | null
+  | JSONValue[]
+  | { [key: string]: JSONValue };
 
 export function createLocalStorageStore<T extends JSONValue>(
   key: string,

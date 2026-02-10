@@ -1,43 +1,45 @@
 <script lang="ts">
-  import { page } from "$app/state";
-  import { PUBLIC_URL } from "$env/static/public";
+import { page } from "$app/state";
+import { PUBLIC_URL } from "$env/static/public";
 
-  interface Props {
-    title: string;
-    url?: string;
-    siteName?: string;
-    description?: string;
-    keywords?: string;
-    image?: string;
-    twitterHandle?: string;
-    type?: "website" | "article";
-    locale?: string;
-  }
+interface Props {
+  title: string;
+  url?: string;
+  siteName?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  twitterHandle?: string;
+  type?: "website" | "article";
+  locale?: string;
+}
 
-  const TITLE = "";
-  const DEFAULT_TITLE = "";
+const TITLE = "";
+const DEFAULT_TITLE = "";
 
-  const {
-    title,
-    url,
-    siteName = TITLE,
-    description = "",
-    keywords = "",
-    image = `${PUBLIC_URL}/og-image.webp`,
-    twitterHandle = "@",
-    type = "website",
-    locale = "en_US"
-  }: Props = $props();
+const {
+  title,
+  url,
+  siteName = TITLE,
+  description = "",
+  keywords = "",
+  image = `${PUBLIC_URL}/og-image.webp`,
+  twitterHandle = "@",
+  type = "website",
+  locale = "en_US"
+}: Props = $props();
 
-  const normalizedTitle = $derived(title === "default" ? DEFAULT_TITLE : `${title} | ${TITLE}`);
+const normalizedTitle = $derived(
+  title === "default" ? DEFAULT_TITLE : `${title} | ${TITLE}`
+);
 
-  const normalizedUrl = $derived(
-    url
-      ? url.startsWith("http")
-        ? url
-        : `${PUBLIC_URL.replace(/\/$/, "")}${url.startsWith("/") ? url : `/${url}`}`
-      : page.url.href
-  );
+const normalizedUrl = $derived(
+  url
+    ? url.startsWith("http")
+      ? url
+      : `${PUBLIC_URL.replace(/\/$/, "")}${url.startsWith("/") ? url : `/${url}`}`
+    : page.url.href
+);
 </script>
 
 <svelte:head>

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": ["**", "!.vercel", "!.svelte-kit", "!node_modules"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentWidth": 2,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "semicolons": "always",
+      "trailingCommas": "none"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "trailingCommas": "none"
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    },
+    "linter": {
+      "enabled": false
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.svelte"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          }
+        }
+      }
+    }
+  ],
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              [":BUN:", ":NODE:"],
+
+              ":BLANK_LINE:",
+
+              [
+                "svelte",
+                "svelte/**",
+                "@sveltejs",
+                "@sveltejs/**",
+                "$app",
+                "$app/**",
+                "$env",
+                "$env/**"
+              ],
+
+              ":BLANK_LINE:",
+
+              ":PACKAGE:",
+
+              ":BLANK_LINE:",
+
+              ["~/components", "~/components/**"],
+              ["~/stores", "~/stores/**"],
+              ["~/libs", "~/libs/**"],
+              ["~/utils", "~/utils/**", "!~/utils/types"],
+              ["~", "~/**", "!~/utils/types"],
+
+              ":BLANK_LINE:",
+
+              ["~/remotes", "~/remotes/**"],
+
+              ":BLANK_LINE:",
+
+              ["~/utils/types"],
+
+              ":BLANK_LINE:",
+
+              ["../../../**"],
+              ["../../**"],
+              ["../**"],
+              ["./**"]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

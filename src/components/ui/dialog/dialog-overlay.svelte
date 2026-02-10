@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { Dialog as DialogPrimitive } from "bits-ui";
+import { Dialog as DialogPrimitive } from "bits-ui";
 
-  import { cn } from "~utils/index.js";
+import { cn } from "~utils/index.js";
 
-  let {
-    ref = $bindable(null),
-    class: className,
-    ...restProps
-  }: DialogPrimitive.OverlayProps = $props();
+let {
+  ref = $bindable(null),
+  class: className,
+  ...restProps
+}: DialogPrimitive.OverlayProps = $props();
 </script>
 
 <DialogPrimitive.Overlay

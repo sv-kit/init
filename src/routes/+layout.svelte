@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { ModeWatcher } from "mode-watcher";
+import { ModeWatcher } from "mode-watcher";
 
-  import { Toaster } from "~components/ui/sonner";
-  import { TooltipProvider } from "~components/ui/tooltip";
+import { Toaster } from "~components/ui/sonner";
+import { TooltipProvider } from "~components/ui/tooltip";
 
-  import "./layout.css";
+import "./layout.css";
 
-  let { children } = $props();
+let { children } = $props();
 </script>
 
 <ModeWatcher />

@@ -1,9 +1,9 @@
 <script lang="ts">
-  interface Props {
-    message: string;
-  }
+interface Props {
+  message: string;
+}
 
-  const { message }: Props = $props();
+const { message }: Props = $props();
 </script>
 
 <div class="relative min-h-screen">

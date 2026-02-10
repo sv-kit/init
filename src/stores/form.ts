@@ -1,8 +1,14 @@
-import { derived, get, writable, type Readable, type Writable } from "svelte/store";
+import {
+  derived,
+  get,
+  type Readable,
+  type Writable,
+  writable
+} from "svelte/store";
 
-import { z, type ZodType } from "zod";
+import { type ZodType, z } from "zod";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint: no any
 type CreateFormParams<T extends Record<string, any>> = {
   schema: ZodType<T>;
   defaultValues: T;
@@ -16,7 +22,7 @@ type CreateFormParams<T extends Record<string, any>> = {
   onRollback?: () => void | Promise<void>;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint: no any
 type CreateFormReturn<T extends Record<string, any>> = {
   formData: Writable<T>;
   formErrors: Writable<Partial<Record<keyof T, string>>>;
@@ -28,12 +34,12 @@ type CreateFormReturn<T extends Record<string, any>> = {
   getField: <K extends keyof T>(key: K) => Writable<T[K]>;
   getError: <K extends keyof T>(key: K) => Readable<string | undefined>;
   setError: <K extends keyof T>(key: K, message: string) => void;
-  clearError: <K extends keyof T>(key: K) => void; // <--- Added this
+  clearError: <K extends keyof T>(key: K) => void;
   clearErrors: <K extends keyof T>(keys?: K[]) => void;
   validateField: (field: keyof T, value?: unknown) => void;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint: no any
 export function useForm<T extends Record<string, any>>({
   schema,
   defaultValues,
@@ -71,7 +77,8 @@ export function useForm<T extends Record<string, any>>({
 
     if (!result.success) {
       const { fieldErrors } = z.flattenError(result.error);
-      const errorMessage = (fieldErrors[field as keyof typeof fieldErrors] || [])[0] || "";
+      const errorMessage =
+        (fieldErrors[field as keyof typeof fieldErrors] || [])[0] || "";
       formErrors.update((e) => ({ ...e, [field]: errorMessage }));
     } else {
       formErrors.update((e) => ({ ...e, [field]: "" }));
