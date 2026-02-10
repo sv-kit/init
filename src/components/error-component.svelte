@@ -1,8 +1,4 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-
-  import { Button } from "./ui/button";
-
   interface Props {
     message: string;
   }
@@ -17,6 +13,6 @@
       <p class="text-destructive mt-2 max-w-lg text-sm">{message}</p>
     </div>
 
-    <Button onclick={() => goto("/")}>Go to Home</Button>
+    <a href="/" class="underline">Go to Home</a>
   </div>
 </div>

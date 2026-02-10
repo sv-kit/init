@@ -6,12 +6,6 @@
     <title>%sveltekit.error.message%</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-      function goTo(path) {
-        window.location.href = path;
-      }
-    </script>
   </head>
 
   <body class="min-h-screen">
@@ -21,9 +15,7 @@
         <p class="mt-2 max-w-lg text-sm text-[#d93025]">%sveltekit.error.message%</p>
       </div>
 
-      <button type="button" class="rounded-md bg-[#0056d2] px-4 py-2 text-sm" onclick="goTo('/')">
-        Go to Home
-      </button>
+      <a href="/" class="underline">Go to Home</a>
     </div>
   </body>
 
